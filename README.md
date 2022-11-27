@@ -23,17 +23,13 @@
 
 ### Question bank Generation
 - Create Question bank
-
-![문제은행1 작게](https://user-images.githubusercontent.com/65396560/204124511-20de63c7-a2d5-4ea1-ada9-cd88bed2aeb3.jpeg)
+![문제은행1 크게](https://user-images.githubusercontent.com/65396560/204124810-2b1168e1-df24-4b05-ade2-833c20952c8a.jpeg)
 - When user use service
-
-![문제은행22 작게](https://user-images.githubusercontent.com/65396560/204124515-da362bd8-9749-4d45-80f2-d271a9d7b38e.jpeg)
-
+![문제은행22 크게](https://user-images.githubusercontent.com/65396560/204124819-0d7cb398-f4d0-4fee-9d67-aae817c3b7f4.jpeg)
 
 ### Real-time Question Generation
 - When user use service
-
-![실시간 작게](https://user-images.githubusercontent.com/65396560/204124508-588f46a7-4104-41ce-9ee1-4277844a9aed.jpeg)
+![실시간 크게](https://user-images.githubusercontent.com/65396560/204124826-9bc4a6be-7899-4417-abcf-5839de5fcac2.jpeg)
 
 ## Description
 
