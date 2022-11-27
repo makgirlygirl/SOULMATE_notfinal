@@ -13,6 +13,7 @@
 
 ## Table of Contents
  
+- [Development Environment](#Development-Environment)
 - [Service Structure](#Service-Structure)
   - [Question bank Generation](#Question-bank-Generation)
   - [Real-time Question Generation](#Real-time-Question-Generation)
@@ -23,6 +24,12 @@
 - [Demonstration](#Demonstration)  
   - [Video](#Video)
   - [Generated Questions](#Generated-Questions)
+
+## Development Environment
+![ㅇ](https://user-images.githubusercontent.com/65396560/204125126-9b359837-d020-4ab1-a0b3-2758a671e957.png)
+For detail enviroment, see `requirements.txt`
+
+
 ## Service Structure
 
 ### Question bank Generation
