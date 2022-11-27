@@ -16,9 +16,9 @@
   - [Model](#Model)
   - [Frontend](#Frontend)
   - [Backend](#Backend)
-- [Demonstration](#Demonstration)
-  - [Generated Questions](#Generated-Questions)
+- [Demonstration](#Demonstration)  
   - [Video](#Video)
+  - [Generated Questions](#Generated-Questions)
 ## Service Structure
 
 ### Question bank Generation
@@ -41,6 +41,9 @@
   집 가고 싶다
 
 ## Demonstration
+
+### Video
+- [Youtube link](#youtubelink)
 
 ### Generated Questions
 - Question1
@@ -67,5 +70,4 @@
 - Question8
 
   사진첨부하기
-### Video
-- [Youtube link](#youtubelink)
+
