@@ -5,7 +5,11 @@
 > MakgirlyGirl | Yoonseo Kim, Seohyon Park, Hongeun Ahn, Yujin Chang
 
  - SOULMATE is a self-directed learning service that helps you study English alone without private education.
- - AI-based self-directed learning service that creates questions of the Korean-SAT type
+ - AI-based self-directed learning service that creates questions of the Korean-SAT type.
+ 
+ - Eliminating educational inequality by providing free educational opportunities to the underprivileged in private education.
+ - User-tailored English learning using real-time problem production.
+
 
 ## Table of Contents
  
