@@ -77,15 +77,9 @@ conda env create --file SOULMATE_env.yaml
 
 
 - Problem Solving Screen (Question bank/Real-time Question Generation)
+  ![image](https://user-images.githubusercontent.com/65396560/204465161-5d0dfe5a-1b5d-4f35-a8db-11fe33559738.png)
+
   - Solving questions and grading
   - Save as .docx format
   - Report the wrong questions
-  ![image](https://user-images.githubusercontent.com/65396560/204465161-5d0dfe5a-1b5d-4f35-a8db-11fe33559738.png)- Question4
 
-- Solving questions and grading
-
-  
-- Save as .docx format
-
-
-- Report the wrong questions
