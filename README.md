@@ -28,7 +28,12 @@
 
 ## Development Environment
 ![ㅇ](https://user-images.githubusercontent.com/65396560/204125126-9b359837-d020-4ab1-a0b3-2758a671e957.png)
-For detail enviroment, see `requirements.txt`
+
+Create a virtual environment with all requirements.
+
+```shell script
+conda env create --file SOULMATE_env.yaml
+```
 
 
 ## Service Structure
