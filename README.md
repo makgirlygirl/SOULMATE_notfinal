@@ -17,10 +17,10 @@
 - [Service Structure](#Service-Structure)
   - [Question bank Generation](#Question-bank-Generation)
   - [Real-time Question Generation](#Real-time-Question-Generation)
-- [Description](#Description)
+<!-- - [Description](#Description)
   - [Model](#Model)
   - [Frontend](#Frontend)
-  - [Backend](#Backend)
+  - [Backend](#Backend) -->
 - [Demonstration](#Demonstration)  
   - [Video](#Video)
   - [Generated test paper](#Generated-test-paper)
@@ -48,14 +48,14 @@ conda env create --file SOULMATE_env.yaml
 - When user use service
 ![실시간 크게](https://user-images.githubusercontent.com/65396560/204124826-9bc4a6be-7899-4417-abcf-5839de5fcac2.jpeg)
 
-## Description
+<!-- ## Description
 
 ### Model
   어쩌고 저쩌고
 ### Frontend
   이러쿵 저러쿵
 ### Backend
-  집 가고 싶다
+  집 가고 싶다 -->
 
 ## Demonstration
 
