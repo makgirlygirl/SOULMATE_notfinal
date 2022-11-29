@@ -66,10 +66,12 @@ conda env create --file SOULMATE_env.yaml
   워드파일 사진첨부하기
 
 ### Generated Questions
-- Question1
+- SOULMATE Question bank
+ - Search for problems already stored in the SOULMATE database by type.
+ ![image](https://user-images.githubusercontent.com/65396560/204460924-a24a76a1-f2f1-42fd-8298-66cce3dcee26.png)
 
-  사진첨부하기
-- Question2
+- Real-time Question Generation
+ - If you enter your passage, SOULMATE AI will create a new Korean-SAT type questions.
 
   사진첨부하기
 - Question3
