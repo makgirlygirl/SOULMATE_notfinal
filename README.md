@@ -73,7 +73,7 @@ conda env create --file SOULMATE_env.yaml
 
 - Real-time Question Generation
   - If you enter your passage, SOULMATE AI will create a new Korean-SAT type questions.
-  ![image](https://user-images.githubusercontent.com/65396560/204464541-1f77b5d8-a8ce-462f-b3be-b235216ab15f.png)
+
 
 
 - Problem Solving Screen (Question bank/Real-time Question Generation)
