@@ -39,13 +39,13 @@ conda env create --file SOULMATE_env.yaml
 
 ### Question bank Generation
 - Create Question bank
- - ![문제은행1 크게](https://user-images.githubusercontent.com/65396560/204124810-2b1168e1-df24-4b05-ade2-833c20952c8a.jpeg)
+ ![문제은행1 크게](https://user-images.githubusercontent.com/65396560/204124810-2b1168e1-df24-4b05-ade2-833c20952c8a.jpeg)
 - When user use service
- - ![문제은행22 크게](https://user-images.githubusercontent.com/65396560/204124819-0d7cb398-f4d0-4fee-9d67-aae817c3b7f4.jpeg)
+ ![문제은행22 크게](https://user-images.githubusercontent.com/65396560/204124819-0d7cb398-f4d0-4fee-9d67-aae817c3b7f4.jpeg)
 
 ### Real-time Question Generation
 - When user use service
-- ![실시간 크게](https://user-images.githubusercontent.com/65396560/204124826-9bc4a6be-7899-4417-abcf-5839de5fcac2.jpeg)
+![실시간 크게](https://user-images.githubusercontent.com/65396560/204124826-9bc4a6be-7899-4417-abcf-5839de5fcac2.jpeg)
 
 <!-- ## Description
 
@@ -64,17 +64,17 @@ conda env create --file SOULMATE_env.yaml
 ### Generated Questions
 - SOULMATE Question bank
   - Search for problems already stored in the SOULMATE database by type.
-  - ![image](https://user-images.githubusercontent.com/65396560/204464437-99b853b4-37a3-460d-a27e-0293c9a0b6f2.png)
+  ![image](https://user-images.githubusercontent.com/65396560/204464437-99b853b4-37a3-460d-a27e-0293c9a0b6f2.png)
 
 
 - Real-time Question Generation
   - If you enter your passage, SOULMATE AI will create a new Korean-SAT type questions.
-  - ![image](https://user-images.githubusercontent.com/65396560/204470706-d1ec192a-c651-42a3-8197-45c5bd5d918c.png)
+  ![image](https://user-images.githubusercontent.com/65396560/204470706-d1ec192a-c651-42a3-8197-45c5bd5d918c.png)
 
 
 
 - Problem Solving Screen (Question bank/Real-time Question Generation)
-  - ![image](https://user-images.githubusercontent.com/65396560/204465161-5d0dfe5a-1b5d-4f35-a8db-11fe33559738.png)
+  ![image](https://user-images.githubusercontent.com/65396560/204465161-5d0dfe5a-1b5d-4f35-a8db-11fe33559738.png)
 
   - Solving questions and grading
   - Save as .docx format
