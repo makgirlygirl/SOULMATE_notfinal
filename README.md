@@ -23,7 +23,6 @@
   - [Backend](#Backend) -->
 - [Demonstration](#Demonstration)  
   - [Video](#Video)
-  - [Generated test paper](#Generated-test-paper)
   - [Generated Questions](#Generated-Questions)
 
 ## Development Environment
@@ -61,9 +60,6 @@ conda env create --file SOULMATE_env.yaml
 
 ### Video
 - [Youtube link](#youtubelink)
-
-### Generated test paper
-  워드파일 사진첨부하기
 
 ### Generated Questions
 - SOULMATE Question bank
