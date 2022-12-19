@@ -8,11 +8,9 @@ import string
 from nltk import ne_chunk
 from difflib import SequenceMatcher
 from keybert import KeyBERT
-## preset for random seed
-random.seed(100)
 
 ## preset for openai key
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = 'your API KEY'
 openai.api_key = OPENAI_API_KEY
 
 ## preset for gpt3 patameter
@@ -23,8 +21,10 @@ TOP_P=1
 
 #%%
 ## function using gpt3 -> sentence generate
-def get_paraphrased_sentences_1(passage:str)->str:
-    goal = 'Paraphrase this passage in 1 sentence.'
+def get_paraphrased_sentences_1(passage:str, option=None)->str:
+    goal = 'Paraphrase this passage in one sentence with up to 20 words.'
+    if option=='Q8': goal = 'Paraphrase this passage in 1 sentence.'
+
     prompt = goal + '\n\n' + passage
 
     response=openai.Completion.create(engine=ENGINE,
@@ -38,7 +38,7 @@ def get_paraphrased_sentences_1(passage:str)->str:
     return paraphrase
 
 def get_paraphrased_sentences_n(passage:str, num:int)->list:
-    goal = f'Make {num} paraphrased sentences based on this passage without any numbering, wrap the sentence inside [].'
+    goal = f'Make {num} paraphrased sentences with up to 20 words based on this passage without any numbering, wrap the sentence inside [].'
     prompt = goal + '\n\n' + passage
         
     response=openai.Completion.create(engine=ENGINE,
@@ -56,7 +56,7 @@ def get_paraphrased_sentences_n(passage:str, num:int)->list:
     return paraphrased_list[:num]
 
 def get_false_sentences_1(passage:str)->str:
-    goal = 'Make a false sentence based on this passage.'
+    goal = 'Make a false sentence based on this passage with up to 20 words.'
     prompt = goal + '\n\n' + passage
 
     response=openai.Completion.create(engine=ENGINE,
@@ -69,9 +69,8 @@ def get_false_sentences_1(passage:str)->str:
     if paraphrase == '' or paraphrase == None: return None
     return paraphrase
 
-
 def get_false_sentences_n(passage:str, num: int)->list:
-    goal = f'Make {num}  false sentences based on this passage without any numbering, wrap the sentence inside [].'
+    goal = f'Make {num}  false sentences with up to 20 words based on this passage without any numbering, wrap the sentence inside [].'
     prompt = goal + '\n\n' + passage
         
     response=openai.Completion.create(engine=ENGINE,
@@ -88,13 +87,11 @@ def get_false_sentences_n(passage:str, num: int)->list:
     if len(distractors_list) < num: return None
     return distractors_list[:num]
 
-#%% 
-## grammer check
+#%%
 def check_punctuation_capital_sentence(sentence:str)->str:
     if len(sentence) > 10:
         output=sentence.strip()
         punctuation_marks=['.', '!', '?']
-    # if sentence[-1] not in punctuation_marks: sentence=sentence+'.'
         if output[-1] not in punctuation_marks: 
             output=output+'.'
         if output[0] in punctuation_marks: output=output[1:]
@@ -119,7 +116,7 @@ def get_kwd_n_list(passage: str, top_n:int,  max_word_cnt=1):
     if len(kwd) < top_n: flag=False
 
     return kwd, flag
-#%%
+
 def pos_tagger(nltk_tag):
     '''
     get_pos() 내부에서 쓰임
@@ -194,7 +191,6 @@ def get_synonym_list_gpt(word:str, num: int)->list:
                           stream=False)
         
     output_str_list = response['choices'][0]['text'].replace(',', '___').replace('[', '___').replace(']', '___').split('___')
-    # print('get_synonym_list_gpt: ', output_str_list)
     distractors_list=[]
     for word in output_str_list:
         if len(word) > 1:

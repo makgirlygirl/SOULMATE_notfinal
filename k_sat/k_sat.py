@@ -2,20 +2,6 @@
 from k_sat_question import *
 import json
 
-'''
-#미리 문제 만들 때!
-# passageID=3
-
-# filepath='/home/a1930008/k_sat/testset/'+str(passageID)+'.txt'
-filepath='/home/a1930008/k_sat_pre/testset/221138.txt'
-
-passageID=11
-
-
-f = open(filepath)
-passage = f.read()
-
-'''
 # 실시간 문제 생성용
 class QuestionGenerate:
   def __init__(self, passageID, passage):

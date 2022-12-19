@@ -7,14 +7,6 @@ from k_sat_func import *
 import time
 from nltk import sent_tokenize, word_tokenize
 from itertools import combinations, permutations
-## preset for random seed
-random.seed(100)
-
-## read passage from file(delete in final version)
-# filepath='/home/a1930008/k_sat/testset/221138.txt'
-# passageID=filepath.split('/')[-1].split('.')[0]
-# f = open(filepath)
-# passage = f.read()
 
 ## preset for question_dict
 question_dict_sample={'passageID':None,
@@ -23,7 +15,8 @@ question_dict_sample={'passageID':None,
                     'new_passage':None,
                     'answer':None,## 1~5번
                     'e1':None, 'e2':None, 'e3':None, 'e4':None, 'e5':None}
-#%% 18, 20, 22(목적/요지/주제): 한국어 보기, 23, 24, 41(주제/제목): 영어 보기
+
+#%% 다음 글의 목적/주장/요지로 가장 적절한 것은?
 class Q1:
     def __init__(self):
         self.question_type=1
@@ -67,14 +60,8 @@ class Q1:
             question_dict['e5'] = ex_list[4]
         else: return None
         return json.dumps(question_dict, ensure_ascii = False)
-# %% test Q1
-# q1=Q1()
-# for i in range(3):
-#     q1_json_eng=q1.make_json(passageID, passage, is_Korean=False)
-#     if q1_json_eng!=None: break
-#     time.sleep(10)    ## RateLimitError 피하기
-# print(q1_json_eng)
-#%% 26-28, 45(내용 일치/불일치): 영어 보기/한글 보기
+
+#%% 윗글에 관한 내용으로 가장 적절한/적절하지 않은 것은?
 class Q2:
     def __init__(self):
         self.question_type=2
@@ -135,15 +122,8 @@ class Q2:
             question_dict['e5'] = ex_list[4]
         else: return None
         return json.dumps(question_dict, ensure_ascii = False)
-# %% test Q2
-# q2=Q2()
-# for i in range(3):
-#     q2_json_eng=q2.make_json(passageID, passage, is_Korean=False)
-#     if q2_json_eng!=None: break
-#     time.sleep(10)    ## RateLimitError 피하기
 
-# print(q2_json_eng)
-#%% 36-37, 43(순서(ABC)): 영어 보기
+#%% 주어진 글 다음에 이어질 글의 순서로 가장 적절한 것을 고르시오.
 class Q3:
     def __init__(self):
         self.question_type=3
@@ -211,18 +191,12 @@ class Q3:
         else:
             return None
         return json.dumps(question_dict, ensure_ascii = False)
-# %% test Q3
-# q3=Q3()
-# for i in range(3):
-#     q3_json=q3.make_json(passageID, passage)
-#     if q3_json!=None: break
-#     time.sleep(10)  ## RateLimitError 피하기
-# print(q3_json)
-#%% 31(빈칸추론(단어)): 영어 보기
+
+#%% 다음 빈칸에 들어갈 말로 가장 적절한 것을 고르시오.
 class Q4:
     def __init__(self):
         self.question_type = 4
-        self.question = '다음 빈칸에 들어갈 말로 가장 적절한 것을 고르시오'
+        self.question = '다음 빈칸에 들어갈 말로 가장 적절한 것을 고르시오.'
 
     def get_ans(self, passage:str)->str:
         kwd_list = get_kwd_n_list(passage, 1)
@@ -325,14 +299,8 @@ class Q4:
         else: 
             return None
         return json.dumps(question_dict, ensure_ascii = False)
-# %% test Q4
-# q4=Q4()
-# for i in range(3):
-#     q4_json=q4.make_json(passageID, passage)
-#     if q4_json!=None: break
-#     time.sleep(10)  ## RateLimitError 피하기
-# print(q4_json)
-#%% 30, 42(적절하지 않은 단어)
+
+#%% 다음 글의 밑줄 친 부분 중, 문맥상 낱말의 쓰임이 적절하지 않은 것은?
 class Q5:
     def __init__(self):
         
@@ -451,15 +419,9 @@ class Q5:
             # print(question_dict['passageID'], ': ex_list == None' )
             return None
         return json.dumps(question_dict, ensure_ascii = False)
-# %% test Q5
-# q5=Q5()
-# for i in range(3):
-#     q5_json=q5.make_json(passageID, passage)
-#     if q5_json!=None: break
-#     time.sleep(10)  ## RateLimitError 피하기
-# print(q5_json)
-#%% 38-39 문장이 들어가기에 적절한 곳
-class Q6:
+
+#%% 글의 흐름으로 보아, 주어진 문장이 들어가기에 가장 적절한 곳을 고르시오.
+'''class Q6:
     def __init__(self):
         self.question_type=6
         self.question='글의 흐름으로 보아, 주어진 문장이 들어가기에 가장 적절한 곳을 고르시오.'
@@ -509,14 +471,93 @@ class Q6:
         question_dict['e4'] = '4'
         question_dict['e5'] = '5'
         return json.dumps(question_dict, ensure_ascii = False)
-# %% test Q6
-# q6=Q6()
-# for i in range(3):
-#     q6_json=q6.make_json(passageID, passage)
-#     if q6_json!=None: break
-#     time.sleep(10)  ## RateLimitError 피하기
-# print(q6_json)
-#%% 35 전체 흐름과 관계 없는 문장
+'''
+class Q6:
+    def __init__(self):
+        self.question_type=6
+        self.question='글의 흐름으로 보아, 주어진 문장이 들어가기에 가장 적절한 곳을 고르시오.'
+    
+    def separate(self,passage:str):
+        l=len(temp)
+
+        if(l-1<7):
+            return 0,0,0,False
+            
+        answer_list=[1,2,3,4,5]
+        ans=random.randint(1,5)
+
+        num=range(1,l-1)
+
+        if len(num)>=5:
+            select=random.sample(num,5)
+            select.sort()
+        else:
+            return 0, 0, 0,False
+
+
+        distractors=[x for x in answer_list if x!=ans] 
+        ans_text=temp[select[ans-1]]
+        ans_text_num=select[ans-1]
+
+
+        head=range(1,ans_text_num)
+        tail=range(ans_text_num+2,l)
+
+        if (ans==1):
+            tail_select=random.sample(tail,4)
+            tail_select.sort()
+            select=tail_select
+            select.append(ans_text_num)
+        if(ans==5):
+            head_select=random.sample(head,4)
+            head_select.sort()
+            select=head_select
+            select.append(ans_text_num)
+        if(ans==2 or ans==3 or ans==4):
+            head_select=random.sample(head,ans-1)
+            head_select.sort()
+            tail_select=random.sample(tail,5-ans)
+            tail_select.sort()
+            select=head_select+tail_select
+            select.append(ans_text_num)
+        
+        select.sort()
+
+        for i in range(0,5):
+            temp[select[i]]='('+str(answer_list[i])+')'+str(temp[select[i]])
+        
+        temp[select[ans-1]]='('+str(ans)+')'+str(temp[select[ans-1]+1])
+        del temp[select[ans-1]+1]
+
+
+        new_passage='. '.join(temp)
+        new_passage=str(ans_text)+'\n\n'+str(new_passage)
+
+        return new_passage, ans, distractors, True
+
+
+    def make_json(self, passageID:int, passage:str):
+        question_dict=question_dict_sample.copy()
+        
+        question_dict['passageID']=int(passageID)
+        question_dict['question_type']=self.question_type
+        question_dict['question'] = self.question
+        new_passage, ans, distractors, flag=self.separate(passage)
+        if flag==False:return None
+        
+        question_dict['new_passage'] = new_passage
+        question_dict['answer']=ans
+        N=0
+        for i in range(1,6):
+            if (i==ans): 
+                question_dict['e'+str(i)]=ans
+                continue
+            question_dict['e'+str(i)]=distractors[N]
+            N+=1
+
+        return json.dumps(question_dict, ensure_ascii = False)
+
+#%% 다음 글에서 전체 흐름과 관계 없는 문장은?
 class Q7:
     def __init__(self):
         self.question_type=7
@@ -553,12 +594,12 @@ class Q7:
         
         question_dict['passageID']=int(passageID)
         question_dict['question_type']=self.question_type
-        question_dict['question'] = self.question   ## 다음 글에서 전체 흐름과 관계 없는 문장은?
+        question_dict['question'] = self.question 
 
-        ans_sent=self.get_ans(passage)  ## list5개
+        ans_sent=self.get_ans(passage)
         if ans_sent == None : return None
 
-        make_new_passage_and_ansidx_output=self.make_new_passage_and_ansidx(passage, ans_sent)    ## dict
+        make_new_passage_and_ansidx_output=self.make_new_passage_and_ansidx(passage, ans_sent)
         if make_new_passage_and_ansidx_output == None: return None
         new_passage, ansidx = make_new_passage_and_ansidx_output[0], make_new_passage_and_ansidx_output[1]
         
@@ -570,21 +611,15 @@ class Q7:
         question_dict['e4'] = '4'
         question_dict['e5'] = '5'
         return json.dumps(question_dict, ensure_ascii = False)
-# %% test Q7
-# q7=Q7()
-# for i in range(3):
-#     q7_json=q7.make_json(passageID, passage)
-#     if q7_json!=None: break
-#     time.sleep(10)  ## RateLimitError 피하기
-# print(q7_json)
-#%% 40 글의 내용 요약하고 빈칸 2개 단어 고르기
+
+#%% 다음 글의 내용을 요약하고자 한다. 빈칸 (A), (B)에 들어갈 말로 가장 적절한 것은?
 class Q8:
     def __init__(self):
         self.question_type=8
         self.question='다음 글의 내용을 요약하고자 한다. 빈칸 (A), (B)에 들어갈 말로 가장 적절한 것은?'
 
     def paraphrase(self, passage:str)->str:
-        return get_paraphrased_sentences_1(passage)
+        return get_paraphrased_sentences_1(passage, 'Q8')
 
     def get_keyword(self, paraphrase:str) ->list:
         keyword= get_kwd_n_list(paraphrase, 2)
@@ -632,7 +667,7 @@ class Q8:
         passage_dist_list=self.get_distractors_fromPassage(passage, keyword, paraphrase)
         if passage_dist_list== None: passage_dist_list = []
 
-        a_dist=[]; b_dist=[]    ## 둘 다 3개
+        a_dist=[]; b_dist=[]
 
         if len(a_synonym_list) >= 1 and len(a_antonym_list) >= 2:
             a_dist=[random.choice(a_synonym_list)]+random.sample(a_antonym_list, 2)
@@ -669,7 +704,6 @@ class Q8:
         return dist_list
         
     def make_new_passage(self, passage:str, paraphrase:str, keyword:list)->str:
-        # self.question='다음 글의 내용을 요약하고자 한다. 빈칸 (A), (B)에 들어갈 말로 가장 적절한 것은?'
         new_passage=passage + '\n\n==>'
         new_paraphrase='' + paraphrase
         space='__(index)__'
@@ -678,7 +712,6 @@ class Q8:
             if kwd in paraphrase or kwd.lower() in paraphrase:
                 cnt_kwd = paraphrase.count(kwd)
                 cnt_kwd_l = paraphrase.count(kwd.lower())
-                # print(kwd, cnt_kwd, cnt_kwd_l)
 
                 if cnt_kwd == 0 and cnt_kwd_l == 0: 
                     return None
@@ -699,12 +732,11 @@ class Q8:
                     new_paraphrase = new_paraphrase.replace(kwd.lower(), space.lower(), loc)
                     new_paraphrase = new_paraphrase.replace(space.lower(), kwd.lower(), loc-1)
         
-        ascci_A = 65  ##'A'의 아스키코드
+        ascci_A = 65 
         for i in range(new_paraphrase.count(space)):
             new_paraphrase = new_paraphrase.replace(space, '('+chr(ascci_A+i)+')', 1)
 
         new_passage = new_passage+new_paraphrase
-        # print(new_passage)
         return new_passage
 
     def make_json(self, passageID:int, passage:str):
@@ -736,10 +768,11 @@ class Q8:
         ans=random.randint(0, 4)
         question_dict['answer']=ans+1
 
+            
         ex_list = []
         for i in dist_list:
-            ex_list.append('(A)'+i[0]+' (B) '+i[1])
-        ex_list.insert(ans, '(A)'+keyword[0]+' (B) '+keyword[1])
+            ex_list.append('(A)'+i[0].title()+' (B) '+i[1].title())
+        ex_list.insert(ans, '(A)'+keyword[0].title()+' (B) '+keyword[1].title())
 
         if len(ex_list)==5:
             question_dict['e1']=ex_list[0]
@@ -749,16 +782,5 @@ class Q8:
             question_dict['e5']=ex_list[4]
         else:
             return 
-            None
         
         return json.dumps(question_dict, ensure_ascii = False)
-
-# %% test Q8
-# q8=Q8()
-# for i in range(3):
-#     q8_json=q8.make_json(passageID, passage)
-#     if q8_json!=None: break
-#     time.sleep(10)  ## RateLimitError 피하기
-# print(q8_json)
-# %%
-## 8 단ㅓㅜ성을 바궈야ㄹㄷ,ㅅ
